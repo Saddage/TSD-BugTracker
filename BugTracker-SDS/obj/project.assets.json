@@ -12539,11 +12539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/BugTracker-SDS.csproj",
+      "projectUniqueName": "/Users/intern/Documents/Studia/TSD/TSD-BugTracker/BugTracker-SDS/BugTracker-SDS.csproj",
       "projectName": "BugTracker-SDS",
-      "projectPath": "/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/BugTracker-SDS.csproj",
+      "projectPath": "/Users/intern/Documents/Studia/TSD/TSD-BugTracker/BugTracker-SDS/BugTracker-SDS.csproj",
       "packagesPath": "/Users/intern/.nuget/packages/",
-      "outputPath": "/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/obj",
+      "outputPath": "/Users/intern/Documents/Studia/TSD/TSD-BugTracker/BugTracker-SDS/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

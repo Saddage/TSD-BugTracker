@@ -26,10 +26,8 @@ namespace BugTracker_SDS.Controllers
 
         // GET api/bugs/5
         [HttpGet("{id}")]
-        public Bug Get(int id)
+        public void Get(int id)
         {
-            var bug = bugs.Where(b => b.ID == id);
-            return (BugTrackerSDS.Models.Bug)bug;
         }
 
         // POST api/bugs

@@ -1,0 +1,11 @@
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/bin/Debug/netcoreapp2.0/BugTracker-SDS.deps.json
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/bin/Debug/netcoreapp2.0/BugTracker-SDS.runtimeconfig.json
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/bin/Debug/netcoreapp2.0/BugTracker-SDS.runtimeconfig.dev.json
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/bin/Debug/netcoreapp2.0/BugTracker-SDS.dll
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/bin/Debug/netcoreapp2.0/BugTracker-SDS.pdb
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/obj/Debug/netcoreapp2.0/BugTracker-SDS.csprojResolveAssemblyReference.cache
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/obj/Debug/netcoreapp2.0/BugTracker-SDS.csproj.CoreCompileInputs.cache
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/obj/Debug/netcoreapp2.0/BugTracker-SDS.AssemblyInfoInputs.cache
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/obj/Debug/netcoreapp2.0/BugTracker-SDS.AssemblyInfo.cs
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/obj/Debug/netcoreapp2.0/BugTracker-SDS.dll
+/Users/intern/Projects/BugTracker-SDS/BugTracker-SDS/obj/Debug/netcoreapp2.0/BugTracker-SDS.pdb

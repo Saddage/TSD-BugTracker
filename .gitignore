@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/frontend/node_modules
 
 # testing
 /coverage
@@ -21,3 +22,4 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 .vs/
+.vscode

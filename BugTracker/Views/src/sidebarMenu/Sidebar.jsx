@@ -7,13 +7,9 @@ import "./Sidebar.css"
 
 export const Sidebar = () => (
     <div className="sidebar-container">
-    <div className="sidebar-bug-details">
-        Issue details
-    </div>
-    <Joke />
-        { /*<Dropdown primary>
-            Essa
-        </Dropdown> */}
+        <div className="sidebar-bug-details">
+            Issue details
+        </div>
     </div>
 );
 

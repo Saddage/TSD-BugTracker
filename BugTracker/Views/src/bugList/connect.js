@@ -8,14 +8,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(Joke);
 
 function mapStateToProps(state) {
     return {
-        joke: state.norrisJoke
+
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getJoke: bindActionCreators(fetchChuckNorrisJoke, dispatch)
+
     };
 }
 
-//  /bugs,
+// above are placeholders for store properties and action dispatchers

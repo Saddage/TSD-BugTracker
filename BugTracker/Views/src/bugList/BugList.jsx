@@ -11,7 +11,7 @@ export default class BugList extends Component {
     }
 
     componentWillMount() {
-
+        // placeholder for initial API call for issues list
     }
 
     render() {
@@ -30,19 +30,3 @@ export default class BugList extends Component {
         );
     }
 }
-
-// export const BugList = () => (
-//     <div className="buglist-container">
-//         <div className="buglist-content">
-//             {
-//                 columns.map((currentColumn) => (
-//                     <Column key={ currentColumn.name } >
-//                         { currentColumn.name }
-//                     </Column>
-//                 ))
-//             }
-//         </div>
-//     </div>
-// );
-
-// export default BugList;

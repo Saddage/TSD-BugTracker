@@ -1,25 +1,23 @@
+#root {
+    height: 100%;
+    width: 100%;
+}
+
 .App {
+    height: 100%;
+    position: relative;
     text-align: center;
+    width: 100%;
 }
 
 .App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
+    background-color: #17539b;
     color: white;
-}
-
-.App-title {
-    font-size: 1.5em;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
 }
 
 .App-intro {
     font-size: large;
-}
-
-.App-authors {
-    bottom: 0;
-    font-size: 12px;
-    position: absolute;
-    right: 15px;
 }

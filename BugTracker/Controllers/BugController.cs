@@ -50,5 +50,12 @@ namespace BugTracker.Controllers
         {
             return Json(_bugs);
         }
+		[Route("bug")]
+        [HttpPost]
+        public ActionResult AddComment(Bug bug)
+        {
+            _bugs.Add(bug);
+            return Content("Success :)");
+        }
     }
 }

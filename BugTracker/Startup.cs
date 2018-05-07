@@ -9,8 +9,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using React.AspNet;
 using JavaScriptEngineSwitcher.Core;
-using JavaScriptEngineSwitcher.ChakraCore;
 using JavaScriptEngineSwitcher.Jint;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Contracts;
+using MyWebApi.Models;
 
 namespace BugTracker
 {
@@ -26,9 +28,12 @@ namespace BugTracker
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+			Contract.Ensures(Contract.Result<IServiceProvider>() != null);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddReact();
             services.AddMvc();
+			services.AddEntityFrameworkNpgsql().AddDbContext<MyWebApiContext>(opt =>
+            opt.UseNpgsql(Configuration.GetConnectionString("MyWebApiConnection")));
 
             return services.BuildServiceProvider();
         }
@@ -81,3 +86,4 @@ namespace BugTracker
         }
     }
 }
+    

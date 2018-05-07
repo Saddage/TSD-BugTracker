@@ -1,0 +1,48 @@
+import React, { Component } from "react";
+import { columns } from "../shared/consts";
+
+import Column from "../components/Column";
+
+import "./BugList.css";
+
+export default class BugList extends Component {
+    constructor() {
+        super();
+    }
+
+    componentWillMount() {
+
+    }
+
+    render() {
+        return (
+            <div className="buglist-container">
+                <div className="buglist-content">
+                    {
+                        columns.map((currentColumn) => (
+                            <Column key={ currentColumn.name } >
+                                { currentColumn.name }
+                            </Column>
+                        ))
+                    }
+                </div>
+            </div>
+        );
+    }
+}
+
+// export const BugList = () => (
+//     <div className="buglist-container">
+//         <div className="buglist-content">
+//             {
+//                 columns.map((currentColumn) => (
+//                     <Column key={ currentColumn.name } >
+//                         { currentColumn.name }
+//                     </Column>
+//                 ))
+//             }
+//         </div>
+//     </div>
+// );
+
+// export default BugList;

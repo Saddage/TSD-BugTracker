@@ -12,7 +12,7 @@ using JavaScriptEngineSwitcher.Core;
 using JavaScriptEngineSwitcher.Jint;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Contracts;
-using MyWebApi.Models;
+using BugTracker.Models;
 
 namespace BugTracker
 {
@@ -32,8 +32,8 @@ namespace BugTracker
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddReact();
             services.AddMvc();
-			services.AddEntityFrameworkNpgsql().AddDbContext<MyWebApiContext>(opt =>
-            opt.UseNpgsql(Configuration.GetConnectionString("MyWebApiConnection")));
+			services.AddEntityFrameworkNpgsql().AddDbContext<DatabaseContext>(opt =>
+            opt.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
             return services.BuildServiceProvider();
         }

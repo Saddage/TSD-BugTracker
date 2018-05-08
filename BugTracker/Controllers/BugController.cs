@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BugTracker.Models;
-using MyWebApi.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -14,12 +13,11 @@ namespace BugTracker.Controllers
 	[Route("api/[controller]")]
 	public class BugController : ControllerBase
     {
-		private readonly MyWebApiContext _context;
+		private readonly DatabaseContext _context;
 
-		public BugController(MyWebApiContext context)
+		public BugController(DatabaseContext context)
 		{
 			_context = context;
-
 		}
 
 		[HttpGet]

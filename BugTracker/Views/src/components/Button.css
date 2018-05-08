@@ -1,0 +1,11 @@
+.button-container {
+    background-color: #e6e6e6;
+    border: 1px solid #808080;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 40px;
+}
+
+.button-container--primary {
+    background-color: #7aadeb;
+}

@@ -16,5 +16,7 @@ namespace BugTracker.Models
         public string Assignee { get; set; }
         public int StoryPoints { get; set; }
         public enum State { toDo, inProggres, review, done }
+        public long ProjectID { get; set; } 
+        public Project Project { get; set; }
     }
 }

@@ -32,11 +32,39 @@ namespace BugTracker.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(50);
 
+                    b.Property<long>("ProjectID");
+
                     b.Property<int>("StoryPoints");
 
                     b.HasKey("BugID");
 
+                    b.HasIndex("ProjectID");
+
                     b.ToTable("bugs");
+                });
+
+            modelBuilder.Entity("BugTracker.Models.Project", b =>
+                {
+                    b.Property<long>("ProjectID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50);
+
+                    b.HasKey("ProjectID");
+
+                    b.ToTable("projects");
+                });
+
+            modelBuilder.Entity("BugTracker.Models.Bug", b =>
+                {
+                    b.HasOne("BugTracker.Models.Project", "Project")
+                        .WithMany("Bugs")
+                        .HasForeignKey("ProjectID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

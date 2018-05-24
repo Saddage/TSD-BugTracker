@@ -63,13 +63,13 @@ namespace BugTracker.Controllers
 			_context.bugs.Add(item);
             _context.SaveChanges();
 
-            return CreatedAtRoute("GetTask", new { id = item.Id }, item);
+            return CreatedAtRoute("GetTask", new { id = item.BugID }, item);
         }
 
 		[HttpPut("{id}")]
 		public IActionResult Update(long id, [FromBody] Bug item)
         {
-            if (item == null || item.Id != id)
+            if (item == null || item.BugID != id)
             {
                 return BadRequest();
             }
@@ -80,7 +80,7 @@ namespace BugTracker.Controllers
                 return NotFound();
             }
 
-			bugs.Title = item.Title;
+			bugs.Name = item.Name;
 			bugs.Description = item.Description;
 
 			_context.bugs.Update(bugs);

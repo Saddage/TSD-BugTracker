@@ -30,4 +30,9 @@
     <Content Remove="Views\Home\Contact.cshtml" />
     <Content Remove="Views\Home\Index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\UserModel.cs" />
+    <Compile Remove="Migrations\20180507210945_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20180507210945_InitialMigration.cs" />
+  </ItemGroup>
 </Project>

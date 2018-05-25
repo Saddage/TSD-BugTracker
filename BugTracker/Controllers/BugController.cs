@@ -51,22 +51,7 @@ namespace BugTracker.Controllers
             _context.SaveChanges();
             return NoContent();
         }
-
-
-		//[HttpPost(("{id}", Name = "projectId")];
-		//public IActionResult Create([FromBody] Bug item)
-   //     {
-   //         if (item == null)
-   //         {
-   //             return BadRequest();
-   //         }
-
-			//_context.bugs.Add(item);
-        //    _context.SaveChanges();
-
-        //    return CreatedAtRoute("GetTask", new { id = item.BugID }, item);
-        //}
-
+              
 		[HttpPut("{id}")]
 		public IActionResult Update(long id, [FromBody] Bug item)
         {

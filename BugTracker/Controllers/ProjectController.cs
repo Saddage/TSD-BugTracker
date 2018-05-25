@@ -70,7 +70,7 @@ namespace BugTracker.Controllers
 			{
 				return BadRequest();
 			}
-			var project = _context.projects.Find(id);
+			item.ProjectID = id;
 			_context.bugs.Add(item);
 			_context.SaveChanges();
 

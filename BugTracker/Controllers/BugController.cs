@@ -26,9 +26,10 @@ namespace BugTracker.Controllers
 			return _context.bugs.ToList();
         }
   
-		[HttpGet("{id}", Name = "GetTask")]
-        public IActionResult GetById(long id)
+		[HttpGet("/{projectId}/{bugId}", Name = "GetTask")]
+        public IActionResult GetById(long projectId, long id)
         {
+			var project = _context.projects.Find(projectId);
 			var item = _context.bugs.Find(id);
             if (item == null)
             {
@@ -36,7 +37,7 @@ namespace BugTracker.Controllers
             }
             return Ok(item);
         }
-
+        
 		[HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
@@ -52,19 +53,19 @@ namespace BugTracker.Controllers
         }
 
 
-		[HttpPost]
-		public IActionResult Create([FromBody] Bug item)
-        {
-            if (item == null)
-            {
-                return BadRequest();
-            }
+		//[HttpPost(("{id}", Name = "projectId")];
+		//public IActionResult Create([FromBody] Bug item)
+   //     {
+   //         if (item == null)
+   //         {
+   //             return BadRequest();
+   //         }
 
-			_context.bugs.Add(item);
-            _context.SaveChanges();
+			//_context.bugs.Add(item);
+        //    _context.SaveChanges();
 
-            return CreatedAtRoute("GetTask", new { id = item.BugID }, item);
-        }
+        //    return CreatedAtRoute("GetTask", new { id = item.BugID }, item);
+        //}
 
 		[HttpPut("{id}")]
 		public IActionResult Update(long id, [FromBody] Bug item)
@@ -85,6 +86,7 @@ namespace BugTracker.Controllers
 
 			_context.bugs.Update(bugs);
             _context.SaveChanges();
+           
             return NoContent();
         }
     }

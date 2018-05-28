@@ -22,7 +22,7 @@ namespace BugTracker.Controllers
 		{
 			return _context.projects.ToList();
 		}
-
+        
 		[HttpGet("{id}", Name = "getProject")]
 		public IActionResult GetProjectById(long id)
 		{
@@ -99,7 +99,7 @@ namespace BugTracker.Controllers
 			return NoContent();
 		}
 
-		[HttpGet("tasks/{id}", Name = "getTaskForProject")]
+		[HttpGet("{id}/tasks", Name = "getTaskForProject")]
 		public IActionResult GetTaskById(long id)
 		{
 			var item = _context.projects.Find(id);

@@ -41,6 +41,10 @@ namespace BugTracker.Migrations
 
                     b.Property<DateTime>("UpdatedAtUTC");
 
+                    b.Property<int>("priority");
+
+                    b.Property<int>("state");
+
                     b.HasKey("Id");
 
                     b.ToTable("Bugs");

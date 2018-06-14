@@ -34,5 +34,7 @@
     <Compile Remove="Models\UserModel.cs" />
     <Compile Remove="Migrations\20180507210945_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20180507210945_InitialMigration.cs" />
+    <Compile Remove="Models\ProjectModel.cs" />
+    <Compile Remove="Migrations\20180524152346_projectBugRelations.cs" />
   </ItemGroup>
 </Project>

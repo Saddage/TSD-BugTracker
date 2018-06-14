@@ -11,8 +11,8 @@ using System;
 namespace BugTracker.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20180524152346_projectBugRelations")]
-    partial class projectBugRelations
+    [Migration("20180614150800_mvpBugs")]
+    partial class mvpBugs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,49 +23,28 @@ namespace BugTracker.Migrations
 
             modelBuilder.Entity("BugTracker.Models.Bug", b =>
                 {
-                    b.Property<long>("BugID")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("AcceptanceCriteria");
+
                     b.Property<string>("Assignee");
+
+                    b.Property<DateTime>("CreatedAtUTC")
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<string>("Description");
 
                     b.Property<string>("Name")
                         .HasMaxLength(50);
 
-                    b.Property<long>("ProjectID");
-
                     b.Property<int>("StoryPoints");
 
-                    b.HasKey("BugID");
+                    b.Property<DateTime>("UpdatedAtUTC");
 
-                    b.HasIndex("ProjectID");
+                    b.HasKey("Id");
 
-                    b.ToTable("bugs");
-                });
-
-            modelBuilder.Entity("BugTracker.Models.Project", b =>
-                {
-                    b.Property<long>("ProjectID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50);
-
-                    b.HasKey("ProjectID");
-
-                    b.ToTable("projects");
-                });
-
-            modelBuilder.Entity("BugTracker.Models.Bug", b =>
-                {
-                    b.HasOne("BugTracker.Models.Project", "Project")
-                        .WithMany("Bugs")
-                        .HasForeignKey("ProjectID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.ToTable("Bugs");
                 });
 #pragma warning restore 612, 618
         }

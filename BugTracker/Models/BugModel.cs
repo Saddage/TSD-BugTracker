@@ -8,7 +8,7 @@ namespace BugTracker.Models
     public class Bug
     {
         [Key]
-	    public long BugID { get; set; }
+	    public long Id { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }
@@ -16,7 +16,10 @@ namespace BugTracker.Models
         public string Assignee { get; set; }
         public int StoryPoints { get; set; }
         public enum State { toDo, inProggres, review, done }
-        public long ProjectID { get; set; } 
-        public Project Project { get; set; }
+        public enum Priority { low, medium, high }
+        public string AcceptanceCriteria { get; set; }
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime CreatedAtUTC { get; set; }
+        public DateTime UpdatedAtUTC { get; set; }
     }
 }

@@ -23,13 +23,13 @@ namespace BugTracker.Controllers
 		[HttpGet]
 		public List<Bug> GetAll()
         {
-			return _context.bugs.ToList();
+			return _context.Bugs.ToList();
         }
   
 		[HttpGet("{id}", Name = "GetTask")]
         public IActionResult GetById(long id)
         {
-			var item = _context.bugs.Find(id);
+			var item = _context.Bugs.Find(id);
             if (item == null)
             {
                 return NotFound();
@@ -40,13 +40,13 @@ namespace BugTracker.Controllers
 		[HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-			var bugs = _context.bugs.Find(id);
+            var bugs = _context.Bugs.Find(id);
             if (bugs == null)
             {
                 return NotFound();
             }
 
-			_context.bugs.Remove(bugs);
+			_context.Bugs.Remove(bugs);
             _context.SaveChanges();
             return NoContent();
         }
@@ -60,21 +60,21 @@ namespace BugTracker.Controllers
                 return BadRequest();
             }
 
-			_context.bugs.Add(item);
+			_context.Bugs.Add(item);
             _context.SaveChanges();
 
-            return CreatedAtRoute("GetTask", new { id = item.BugID }, item);
+            return CreatedAtRoute("GetTask", new { id = item.Id }, item);
         }
 
 		[HttpPut("{id}")]
 		public IActionResult Update(long id, [FromBody] Bug item)
         {
-            if (item == null || item.BugID != id)
+            if (item == null || item.Id != id)
             {
                 return BadRequest();
             }
 
-			var bugs = _context.bugs.Find(id);
+			var bugs = _context.Bugs.Find(id);
             if (bugs == null)
             {
                 return NotFound();
@@ -83,7 +83,7 @@ namespace BugTracker.Controllers
 			bugs.Name = item.Name;
 			bugs.Description = item.Description;
 
-			_context.bugs.Update(bugs);
+			_context.Bugs.Update(bugs);
             _context.SaveChanges();
             return NoContent();
         }

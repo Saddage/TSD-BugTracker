@@ -17,11 +17,11 @@ namespace BugTracker.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     AcceptanceCriteria = table.Column<string>(nullable: true),
                     Assignee = table.Column<string>(nullable: true),
-                    CreatedAtUTC = table.Column<DateTime>(nullable: false),
+                    CreatedAtUTC = table.Column<DateTime>(nullable: false, defaultValueSql: "now()"),
                     Description = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 50, nullable: true),
                     StoryPoints = table.Column<int>(nullable: false),
-                    UpdatedAtUTC = table.Column<DateTime>(nullable: false)
+                    UpdatedAtUTC = table.Column<DateTime>(nullable: false, defaultValueSql: "now()")
                 },
                 constraints: table =>
                 {

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
-using React.AspNet;
 using JavaScriptEngineSwitcher.Core;
 using JavaScriptEngineSwitcher.Jint;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +29,6 @@ namespace BugTracker
         {
 			Contract.Ensures(Contract.Result<IServiceProvider>() != null);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddReact();
             services.AddMvc();
 			services.AddEntityFrameworkNpgsql().AddDbContext<DatabaseContext>(opt =>
             opt.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
@@ -54,26 +52,7 @@ namespace BugTracker
             engineSwitcher.DefaultEngineName = "Jint";
             engineSwitcher.EngineFactories
                 .AddJint();
-
-            // Initialise ReactJS.NET. Must be before static files.
-            app.UseReact(config =>
-            {
-                // If you want to use server-side rendering of React components,
-                // add all the necessary JavaScript files here. This includes
-                // your components as well as all of their dependencies.
-                // See http://reactjs.net/ for more information. Example:
-                //config
-                //  .AddScript("~/Scripts/First.jsx")
-                //  .AddScript("~/Scripts/Second.jsx");
-
-                // If you use an external build too (for example, Babel, Webpack,
-                // Browserify or Gulp), you can improve performance by disabling
-                // ReactJS.NET's version of Babel and loading the pre-transpiled
-                // scripts. Example:
-                //config
-                //  .SetLoadBabel(false)
-                //  .AddScriptWithoutTransform("~/Scripts/bundle.server.js");
-            });
+            
 
             app.UseStaticFiles();
 

@@ -9,7 +9,6 @@ using BugTracker.Models;
 
 namespace BugTracker.Controllers
 {
-
 	[Route("api/[controller]")]
 	public class BugController : ControllerBase
     {
@@ -55,10 +54,14 @@ namespace BugTracker.Controllers
 		[HttpPost]
 		public IActionResult Create([FromBody] Bug item)
         {
+            var time = DateTime.UtcNow;
             if (item == null)
             {
                 return BadRequest();
             }
+
+            item.CreatedAtUTC = time;
+            item.UpdatedAtUTC = time;
 
 			_context.Bugs.Add(item);
             _context.SaveChanges();
@@ -80,6 +83,7 @@ namespace BugTracker.Controllers
                 return NotFound();
             }
 
+            bugs.UpdatedAtUTC = DateTime.UtcNow;
 			bugs.Name = item.Name;
 			bugs.Description = item.Description;
 

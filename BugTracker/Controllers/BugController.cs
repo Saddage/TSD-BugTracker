@@ -86,6 +86,9 @@ namespace BugTracker.Controllers
             bugs.UpdatedAtUTC = DateTime.UtcNow;
 			bugs.Name = item.Name;
 			bugs.Description = item.Description;
+            bugs.Assignee = item.Assignee;
+            bugs.StoryPoints = item.StoryPoints;
+            bugs.AcceptanceCriteria = item.AcceptanceCriteria;
 
 			_context.Bugs.Update(bugs);
             _context.SaveChanges();

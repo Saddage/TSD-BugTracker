@@ -23,16 +23,7 @@ namespace BugTracker.Controllers
 		[HttpGet]
 		public List<Bug> GetAll()
         {
-
-			return new List<Bug> { 
-				new Bug {
-                Name = "test",
-                Description = "test",
-                state = State.toDo,
-                priority = Priority.high,
-                StoryPoints = 32,
-				} };
-			//return _context.Bugs.ToList();
+			return _context.Bugs.ToList();
         }
   
 		[HttpGet("{id}", Name = "GetTask")]

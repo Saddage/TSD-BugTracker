@@ -92,7 +92,7 @@ namespace BugTracker.Controllers
             bugs.AcceptanceCriteria = item.AcceptanceCriteria;
 			bugs.priority = item.priority;
             bugs.state = item.state;
-
+       
 			_context.Bugs.Update(bugs);
             _context.SaveChanges();
             return NoContent();

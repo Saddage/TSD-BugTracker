@@ -23,7 +23,7 @@ namespace BugTracker.Controllers
 		[HttpGet]
 		public List<Bug> GetAll()
         {
-			_context.Bugs.OrderBy(item => item.UpdatedAtUTC);
+			_context.Bugs.OrderBy(item => item.CreatedAtUTC);
 			return _context.Bugs.ToList();
         }
   

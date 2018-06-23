@@ -17,6 +17,7 @@ namespace BugTracker.Controllers
 		public BugController(DatabaseContext context)
 		{
 			_context = context;
+
 		}
 
 		[HttpGet]

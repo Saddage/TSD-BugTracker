@@ -56,6 +56,11 @@ namespace BugTracker
 
             app.UseStaticFiles();
 
+			app.UseCors(options => options
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            );
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

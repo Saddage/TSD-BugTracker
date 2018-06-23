@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BugTracker.Migrations
 {
-    public partial class mvpBugs : Migration
+    public partial class StatePriorityFields : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,11 +17,13 @@ namespace BugTracker.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     AcceptanceCriteria = table.Column<string>(nullable: true),
                     Assignee = table.Column<string>(nullable: true),
-                    CreatedAtUTC = table.Column<DateTime>(nullable: false, defaultValueSql: "now()"),
+				CreatedAtUTC = table.Column<DateTime>(nullable: false, defaultValueSql: "now()"),
                     Description = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 50, nullable: true),
                     StoryPoints = table.Column<int>(nullable: false),
-                    UpdatedAtUTC = table.Column<DateTime>(nullable: false, defaultValueSql: "now()")
+                    UpdatedAtUTC = table.Column<DateTime>(nullable: false, defaultValueSql: "now()"),
+                    priority = table.Column<int>(nullable: false),
+                    state = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

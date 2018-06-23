@@ -11,8 +11,8 @@ using System;
 namespace BugTracker.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20180614150800_mvpBugs")]
-    partial class mvpBugs
+    [Migration("20180615151649_StatePriorityFields")]
+    partial class StatePriorityFields
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,10 @@ namespace BugTracker.Migrations
                     b.Property<int>("StoryPoints");
 
                     b.Property<DateTime>("UpdatedAtUTC");
+
+                    b.Property<int>("priority");
+
+                    b.Property<int>("state");
 
                     b.HasKey("Id");
 

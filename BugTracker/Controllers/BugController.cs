@@ -11,7 +11,7 @@ namespace BugTracker.Controllers
 {
 	[Route("api/[controller]")]
 	public class BugController : ControllerBase
-    {
+	{
 		private readonly DatabaseContext _context;
 
 		public BugController(DatabaseContext context)
@@ -22,80 +22,80 @@ namespace BugTracker.Controllers
 
 		[HttpGet]
 		public List<Bug> GetAll()
-        {
-			return _context.Bugs.ToList();
-        }
-  
+		{
+			var sorted = _context.Bugs.OrderBy(item => item.CreatedAtUTC);
+			return sorted.ToList();
+		}
+
 		[HttpGet("{id}", Name = "GetTask")]
-        public IActionResult GetById(long id)
-        {
+		public IActionResult GetById(long id)
+		{
 			var item = _context.Bugs.Find(id);
-            if (item == null)
-            {
-                return NotFound();
-            }
-            return Ok(item);
-        }
+			if (item == null)
+			{
+				return NotFound();
+			}
+			return Ok(item);
+		}
 
 		[HttpDelete("{id}")]
-        public IActionResult Delete(long id)
-        {
-            var bugs = _context.Bugs.Find(id);
-            if (bugs == null)
-            {
-                return NotFound();
-            }
+		public IActionResult Delete(long id)
+		{
+			var bugs = _context.Bugs.Find(id);
+			if (bugs == null)
+			{
+				return NotFound();
+			}
 
 			_context.Bugs.Remove(bugs);
-            _context.SaveChanges();
-            return NoContent();
-        }
+			_context.SaveChanges();
+			return NoContent();
+		}
 
 
 		[HttpPost]
 		public IActionResult Create([FromBody] Bug item)
-        {
-            var time = DateTime.UtcNow;
-            if (item == null)
-            {
-                return BadRequest();
-            }
+		{
+			var time = DateTime.UtcNow;
+			if (item == null)
+			{
+				return BadRequest();
+			}
 
-            item.CreatedAtUTC = time;
-            item.UpdatedAtUTC = time;
+			item.CreatedAtUTC = time;
+			item.UpdatedAtUTC = time;
 
 			_context.Bugs.Add(item);
-            _context.SaveChanges();
+			_context.SaveChanges();
 
-            return CreatedAtRoute("GetTask", new { id = item.Id }, item);
-        }
+			return CreatedAtRoute("GetTask", new { id = item.Id }, item);
+		}
 
 		[HttpPut("{id}")]
 		public IActionResult Update(long id, [FromBody] Bug item)
-        {
-            if (item == null || item.Id != id)
-            {
-                return BadRequest();
-            }
+		{
+			if (item == null || item.Id != id)
+			{
+				return BadRequest();
+			}
 
 			var bugs = _context.Bugs.Find(id);
-            if (bugs == null)
-            {
-                return NotFound();
-            }
+			if (bugs == null)
+			{
+				return NotFound();
+			}
 
-            bugs.UpdatedAtUTC = DateTime.UtcNow;
+			bugs.UpdatedAtUTC = DateTime.Now;
 			bugs.Name = item.Name;
 			bugs.Description = item.Description;
-            bugs.Assignee = item.Assignee;
-            bugs.StoryPoints = item.StoryPoints;
-            bugs.AcceptanceCriteria = item.AcceptanceCriteria;
-            bugs.priority = item.priority;
+			bugs.Assignee = item.Assignee;
+			bugs.StoryPoints = item.StoryPoints;
+			bugs.AcceptanceCriteria = item.AcceptanceCriteria;
+			bugs.priority = item.priority;
 			bugs.state = item.state;
-       
 			_context.Bugs.Update(bugs);
-            _context.SaveChanges();
-            return NoContent();
-        }
-    }
+			_context.SaveChanges();
+			return NoContent();
+		}
+	}
 }

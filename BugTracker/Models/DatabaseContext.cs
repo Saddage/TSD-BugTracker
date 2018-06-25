@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace BugTracker.Models
@@ -6,5 +7,10 @@ namespace BugTracker.Models
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options){}
         public DbSet<Bug> Bugs { get; set; }
-    }
+
+		public void ListAsync()
+		{
+			throw new NotImplementedException();
+		}
+	}
 }
